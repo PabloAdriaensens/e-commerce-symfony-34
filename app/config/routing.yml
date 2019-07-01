@@ -1,3 +1,8 @@
+glasses:
+    resource: "@GlassesBundle/Controller/"
+    type:     annotation
+    prefix:   /glasses
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

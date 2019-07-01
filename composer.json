@@ -5,7 +5,7 @@
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-4": {
-            "\\": "src"
+            "": "src/"
         },
         "classmap": ["app/AppKernel.php", "app/AppCache.php"]
     },
@@ -30,7 +30,7 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.4"
     },
     "scripts": {
         "start": "php bin/console server:run",
