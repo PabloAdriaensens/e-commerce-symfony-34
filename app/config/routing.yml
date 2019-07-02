@@ -1,7 +1,7 @@
-glasses:
-    resource: "@GlassesBundle/Controller/"
+Products:
+    resource: "@ProductsBundle/Controller/"
     type:     annotation
-    prefix:   /glasses
+    prefix:   /products
 
 app:
     resource: '@AppBundle/Controller/'

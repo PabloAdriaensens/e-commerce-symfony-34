@@ -1,16 +1,16 @@
 <?php
 
-namespace GlassesBundle\Entity;
+namespace ProductsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * User
+ * Glasses
  *
- * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="GlassesBundle\Repository\UserRepository")
+ * @ORM\Table(name="glasses")
+ * @ORM\Entity(repositoryClass="ProductsBundle\Repository\GlassesRepository")
  */
-class User
+class Glasses
 {
     /**
      * @var int
@@ -31,16 +31,16 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=80)
+     * @ORM\Column(name="category", type="string", length=80)
      */
-    private $email;
+    private $category;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="password", type="string", length=100)
+     * @ORM\Column(name="price", type="integer")
      */
-    private $password;
+    private $price;
 
     /**
      * @var \DateTime
@@ -72,7 +72,7 @@ class User
      *
      * @param string $name
      *
-     * @return User
+     * @return Glasses
      */
     public function setName($name)
     {
@@ -92,51 +92,51 @@ class User
     }
 
     /**
-     * Set email
+     * Set category
      *
-     * @param string $email
+     * @param string $category
      *
-     * @return User
+     * @return Glasses
      */
-    public function setEmail($email)
+    public function setCategory($category)
     {
-        $this->email = $email;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get email
+     * Get category
      *
      * @return string
      */
-    public function getEmail()
+    public function getCategory()
     {
-        return $this->email;
+        return $this->category;
     }
 
     /**
-     * Set password
+     * Set price
      *
-     * @param string $password
+     * @param integer $price
      *
-     * @return User
+     * @return Glasses
      */
-    public function setPassword($password)
+    public function setPrice($price)
     {
-        $this->password = $password;
+        $this->price = $price;
 
         return $this;
     }
 
     /**
-     * Get password
+     * Get price
      *
-     * @return string
+     * @return int
      */
-    public function getPassword()
+    public function getPrice()
     {
-        return $this->password;
+        return $this->price;
     }
 
     /**
@@ -144,7 +144,7 @@ class User
      *
      * @param \DateTime $createdAt
      *
-     * @return User
+     * @return Glasses
      */
     public function setCreatedAt($createdAt)
     {
@@ -168,7 +168,7 @@ class User
      *
      * @param \DateTime $updatedAt
      *
-     * @return User
+     * @return Glasses
      */
     public function setUpdatedAt($updatedAt)
     {

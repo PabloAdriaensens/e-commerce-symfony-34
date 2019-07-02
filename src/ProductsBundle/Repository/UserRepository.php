@@ -1,6 +1,6 @@
 <?php
 
-namespace GlassesBundle\Repository;
+namespace ProductsBundle\Repository;
 
 /**
  * UserRepository

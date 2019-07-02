@@ -1,11 +1,11 @@
 <?php
 
-namespace GlassesBundle\Controller;
+namespace ProductsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
-use GlassesBundle\Entity\User;
+use ProductsBundle\Entity\User;
 
 /**
  * @Route("/user")
