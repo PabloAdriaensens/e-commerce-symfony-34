@@ -1,6 +1,6 @@
 <?php
 
-namespace ProductsBundle\Entity;
+namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * User
  *
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="ProductsBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
  */
 class User
 {
@@ -41,6 +41,13 @@ class User
      * @ORM\Column(name="password", type="string", length=100)
      */
     private $password;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="admin", type="boolean")
+     */
+    private $admin;
 
     /**
      * @var \DateTime
@@ -137,6 +144,30 @@ class User
     public function getPassword()
     {
         return $this->password;
+    }
+
+    /**
+     * Set admin
+     *
+     * @param boolean $admin
+     *
+     * @return User
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
+
+        return $this;
+    }
+
+    /**
+     * Get admin
+     *
+     * @return bool
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
     }
 
     /**

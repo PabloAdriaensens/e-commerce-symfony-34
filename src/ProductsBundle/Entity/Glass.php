@@ -5,12 +5,12 @@ namespace ProductsBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Glasses
+ * Glass
  *
- * @ORM\Table(name="glasses")
- * @ORM\Entity(repositoryClass="ProductsBundle\Repository\GlassesRepository")
+ * @ORM\Table(name="glass")
+ * @ORM\Entity(repositoryClass="ProductsBundle\Repository\GlassRepository")
  */
-class Glasses
+class Glass
 {
     /**
      * @var int
@@ -27,6 +27,13 @@ class Glasses
      * @ORM\Column(name="name", type="string", length=80)
      */
     private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=80)
+     */
+    private $image;
 
     /**
      * @var string
@@ -72,7 +79,7 @@ class Glasses
      *
      * @param string $name
      *
-     * @return Glasses
+     * @return Glass
      */
     public function setName($name)
     {
@@ -92,11 +99,35 @@ class Glasses
     }
 
     /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Glass
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
      * Set category
      *
      * @param string $category
      *
-     * @return Glasses
+     * @return Glass
      */
     public function setCategory($category)
     {
@@ -120,7 +151,7 @@ class Glasses
      *
      * @param integer $price
      *
-     * @return Glasses
+     * @return Glass
      */
     public function setPrice($price)
     {
@@ -144,7 +175,7 @@ class Glasses
      *
      * @param \DateTime $createdAt
      *
-     * @return Glasses
+     * @return Glass
      */
     public function setCreatedAt($createdAt)
     {
@@ -168,7 +199,7 @@ class Glasses
      *
      * @param \DateTime $updatedAt
      *
-     * @return Glasses
+     * @return Glass
      */
     public function setUpdatedAt($updatedAt)
     {
