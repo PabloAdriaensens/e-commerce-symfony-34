@@ -19,7 +19,11 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('@Admin/Default/index.html.twig');
+        $repository = $this->getDoctrine()->getRepository(Glass::class);
+        $glasses = $repository->findAll();
+        return $this->render('@Admin/Default/index.html.twig', [
+            'glasses' => $glasses
+        ]);
     }
 
     /**

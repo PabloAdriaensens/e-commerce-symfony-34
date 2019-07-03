@@ -1,9 +1,39 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-Hello From AdminBundle!
-<ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
+<div class="container principal">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for glass in glasses %}
+            <tr>
+                <th scope="row">{{glass.id}}</th>
+                <td>{{glass.name}}</td>
+                <td>{{glass.image}}</td>
+                <td>{{glass.category}}</td>
+                <td>{{glass.price}}</td>
+                <td>
+                    <button type="button" class="btn btn-success">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
         <a class="nav-link" href="/admin/add"> Add Glass <span class="sr-only">(current)</span></a>
-    </li>
-</ul>
+    </div>
+  </div>
+</div>
 {% endblock %}
