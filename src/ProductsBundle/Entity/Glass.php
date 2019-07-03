@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Glass
 {
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
     /**
      * @var int
      *
@@ -52,16 +57,16 @@ class Glass
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
      */
-    private $updatedAt;
+    protected $updatedAt;
 
 
     /**
@@ -218,4 +223,3 @@ class Glass
         return $this->updatedAt;
     }
 }
-

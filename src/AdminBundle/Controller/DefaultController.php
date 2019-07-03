@@ -15,7 +15,7 @@ use ProductsBundle\Entity\Glass;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="admin")
      */
     public function indexAction()
     {
@@ -34,10 +34,21 @@ class DefaultController extends Controller
             ->add('image')
             ->add('category')
             ->add('price')
-            ->add('created_at')
-            ->add('updated_at')
             ->add('save', SubmitType::class, ['label' => 'Add Glass'])
             ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $glass = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($glass);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin');
+        }
+
 
         return $this->render('@Admin/Default/addGlass.html.twig', [
             'form' => $form->createView(),
