@@ -11,7 +11,7 @@ user:
 Glass:
     resource: "@GlassBundle/Controller/"
     type:     annotation
-    prefix:   /Glass
+    prefix:   /
 
 app:
     resource: '@AppBundle/Controller/'

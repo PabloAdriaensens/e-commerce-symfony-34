@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Todas las secciones</h3>
+        </div>
+            <ul class="list-unstyled components">
+                        {% for section in sections %}
+                <li>
+                    <a href="{{ path('section_glasses_list', {id: section.id}) }}">{{ section.title }}</a>
+                </li>
+                        {% endfor %}
+            </ul>
+    </nav>
+</div>
