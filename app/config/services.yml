@@ -36,3 +36,6 @@ services:
   
   UserBundle\DataFixtures\:
     resource: "../../src/UserBundle/DataFixtures/"
+
+  GlassBundle\DataFixtures\:
+    resource: "../../src/GlassBundle/DataFixtures/"

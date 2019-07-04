@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-use ProductsBundle\Entity\Glass;
+use GlassBundle\Entity\Glass;
 
 /**
  * @Route("/admin")

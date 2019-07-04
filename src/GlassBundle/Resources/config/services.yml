@@ -1,4 +1,4 @@
 services:
-#    Products.example:
-#        class: ProductsBundle\Example
+#    Glass.example:
+#        class: GlassBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]

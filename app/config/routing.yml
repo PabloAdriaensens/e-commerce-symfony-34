@@ -8,10 +8,10 @@ user:
     type:     annotation
     prefix:   /
 
-Products:
-    resource: "@ProductsBundle/Controller/"
+Glass:
+    resource: "@GlassBundle/Controller/"
     type:     annotation
-    prefix:   /products
+    prefix:   /Glass
 
 app:
     resource: '@AppBundle/Controller/'

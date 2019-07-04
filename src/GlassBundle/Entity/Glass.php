@@ -1,6 +1,6 @@
 <?php
 
-namespace ProductsBundle\Entity;
+namespace GlassBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Glass
  *
  * @ORM\Table(name="glass")
- * @ORM\Entity(repositoryClass="ProductsBundle\Repository\GlassRepository")
+ * @ORM\Entity(repositoryClass="GlassBundle\Repository\GlassRepository")
  */
 class Glass
 {
