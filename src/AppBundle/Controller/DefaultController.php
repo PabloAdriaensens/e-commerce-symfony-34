@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use GlassBundle\Entity\Section;
+use GlassBundle\Entity\Glass;
 
 class DefaultController extends Controller
 {
@@ -29,6 +30,18 @@ class DefaultController extends Controller
         $sections = $repository->findAll();
         return $this->render('default/sidebar.html.twig', [
             'sections' => $sections
+        ]);
+    }
+
+    /**
+     * @Route("/glasses", name="home")
+     */
+    public function getAllGlassesAction()
+    {
+        $repository = $this->getDoctrine()->getRepository(Glass::class);
+        $glasses = $repository->findAll();
+        return $this->render('default/home.html.twig', [
+            'glasses' => $glasses
         ]);
     }
 

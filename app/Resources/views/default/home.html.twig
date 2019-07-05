@@ -1,0 +1,51 @@
+<div class="container-home">
+<div class="container-home">
+    <div class="row banner">
+        <a><img class="banner" src="{{ asset('img/banner.jpg') }}" alt="banner"></a>
+    </div>
+</div>
+<div class="container-home">
+    <div class="row">
+        <div class="col s4">
+            <div class="wrapper banner-buttons">
+                <button type="button" class="btn btn-home white-text">Ofertas ></button>
+                <button type="button" class="btn btn-home white-text">Novedades ></button>
+                <button type="button" class="btn btn-home white-text">Promociones ></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-home">
+    <div class="row " style="min-height:100vh">
+        <div class="col-md-12 d-none d-sm-block">
+            <div class="row">
+                {% for glass in glasses %}
+                    <div class="col-md-4 color-back d-flex justify-content-center">
+                        <div class="item-glass my-auto">
+                            <img src="img/{{glass.image}}" class="img-responsive border" alt="">
+                            <div class="row">
+                                <div class="col-md-12 vp my-auto vd">
+                                    <h6 class="text-center">{{glass.name}}</h6>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="my-auto">
+                                        <p class="text-center">{{glass.price}}$</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 my-auto vd">
+                                    <h6 class="text-center">Recíbelo ya</h6>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="my-auto">
+                                        <a><img class="star center" src="{{ asset('img/stars.png') }}" alt="star"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
