@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="row my-auto">
+        {% for glass in glasses %}
+            <div class="col-md-6 color-back container d-flex justify-content-end">
+                <div class="col-md-10 item-glass d-flex justify-content-end my-map my-auto">
+                    <a><img src="/img/{{glass.image}}" class="img-responsive" alt=""></a>
+                </div>
+            </div>
+
+            <div class=" col-md-6 color-back container d-flex justify-content-left">
+                <div class="my-auto">
+                    <p class="title">{{ glass.name }}</p>
+                    <p class="price orange-text">{{ glass.price }}€</p>
+                    <p>Opina | Review</p>
+                    <p class="black-text">Marca: {{ glass.name }}</p>
+                    <div class="united">
+                        <p class="black-text">Envio: Desde 10€ -</p><p class="orange-text">GRATIS con GEEK PREMIUM</p>
+                    </div>
+                    <p class="black-text">Cantidad: </p>
+                    <p class="black-text">Disponibilidad: </p>
+                    <div class="united">
+                        <p class="black-text">Financiación</p> <p class="black-text">6, 12, 20 y 30 meses</p>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-2 small-border heart mr-1">
+                                <input class="shop-icons" type="image" src="{{ asset('img/heart.png') }}"/>
+                            </div>
+                            <div class="col-md-6 small-border cart">
+                                <input class="shop-icons" type="image" src="{{ asset('img/shopping-cart.png') }}"/>        Añadir al carrito
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-secondary">COMPRAR</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                        <label class="custom-control-label grey-text" for="defaultUnchecked">Garantía por rotura y daño accidental</label>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a><img class="social-logo" src="{{ asset('img/twitter-logo.png') }}" alt="twitter"></a>
+                            </div>
+                            <div class="col-md-1">
+                                <a><img class="social-logo" src="{{ asset('img/facebook-logo.png') }}" alt="twitter"></a>
+                            </div>
+                            <div class="col-md-1">
+                                <a><img class="social-logo" src="{{ asset('img/google-logo.png') }}" alt="twitter"></a>
+                            </div>
+                            <div class="col-md-1">
+                                <a><img class="social-logo" src="{{ asset('img/mail-logo.png') }}" alt="twitter"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <a><img class="img-responsive bottom-image" src="{{ asset('img/bottom-glasses.png') }}" alt="twitter"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

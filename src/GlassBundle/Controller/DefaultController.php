@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 use GlassBundle\Entity\Section;
+use GlassBundle\Entity\Glass;
 
 /**
  * @Route("/glasses")
@@ -29,6 +30,20 @@ class DefaultController extends Controller
         $sections = $repository->findAll();
         return $this->render('@GlassBundle/Default/index.html.twig', [
             'sections' => $sections
+        ]);
+    }
+    
+    /**
+     * @Route("/{id}", name="get_glass", requirements={"id"="\d+"})
+     */
+    public function getGlass($id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Glass::class);
+        $glasses = $repository->findBy(
+            ['id' => $id]
+        );
+        return $this->render('default/get_glass.html.twig', [
+            'glasses' => $glasses
         ]);
     }
 }

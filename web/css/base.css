@@ -3,6 +3,20 @@
 */
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+/* Color palette */
+.orange-text {
+    color: #FF3D00;
+}
+
+.grey-text {
+    color: #C1C1C1;
+}
+
+.black-text {
+    color: #000000;
+}
+
+
 .wrapper {
     display: flex;
     align-items: stretch;
@@ -110,7 +124,7 @@ ul ul a {
 
 .item-glass img {
     width: 100%;
-    height: 80%;
+    height: 100%;
 }
 
 .color-back {
@@ -122,6 +136,33 @@ ul ul a {
     margin-bottom: 1em;
 }
 
+.title {
+    font-weight: 900;
+    font-size: 1.8em;
+}
+
+.united p{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.price {
+    font-weight: 900;
+    font-size: 1.8em;
+}
+
+.social-logo {
+    width: 2vw;
+    height: 3vh;
+    margin-bottom: 1vh;
+}
+
+.bottom-image {
+    width: 43vw;
+    height: 12vh;
+    margin-bottom: 1vh;
+}
+
 .vp {
     padding-top: 2vh;
 }
@@ -129,6 +170,28 @@ ul ul a {
 .border {
     border: 10px solid #C1C1C1!important;
     margin-top: 15px;
+}
+
+.small-border {
+    border: 2px solid #C1C1C1!important;
+}
+
+.heart {
+    max-width: 14.3%!important;
+}
+
+.cart {
+    max-width: 44.3%!important;
+}
+
+.shop-icons {
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+.custom-control {
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .center {
@@ -150,6 +213,18 @@ ul ul a {
     font-size: 1.2em;
     max-width: 15vw;
     min-width: 22vw;
+}
+
+.small-nav {
+    font-size: 10px;
+}
+
+.form-control {
+    width: 25vw!important;
+}
+
+.form {
+    font-size: 20px;
 }
 
 @media (max-width: 768px) {

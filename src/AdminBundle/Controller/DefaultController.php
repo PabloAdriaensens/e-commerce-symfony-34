@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use GlassBundle\Entity\Glass;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use GlassBundle\Entity\Section;
 
 /**
  * @Route("/admin")
@@ -33,10 +35,23 @@ class DefaultController extends Controller
     {
         $glass = new Glass();
 
+
+        $repository = $this->getDoctrine()->getRepository(Section::class);
+        $sections = $repository->findAll();
+
+        $sectionsArray = array();
+
+
+        foreach ($sections as $idx => $section) {
+            $sectionsArray[$section->getTitle()] = $section->getId();
+        }
+
         $form = $this->createFormBuilder($glass)
             ->add('name')
             ->add('image')
-            ->add('category')
+            ->add('category', ChoiceType::class, [
+                'choices'  => $sectionsArray
+            ])
             ->add('price')
             ->add('save', SubmitType::class, ['label' => 'Add Glass'])
             ->getForm();
