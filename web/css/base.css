@@ -35,6 +35,10 @@
     margin: 0;
 }
 
+.vp {
+    padding-top: 2vh;
+}
+
 /* End General */
 
 /* Sidebar */
@@ -146,17 +150,12 @@ ul ul a {
 }
 
 .star {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 
-.title {
+.title-home {
     font-weight: 900;
-    font-size: 1.8em;
-}
-
-.united p{
-    display: inline-block;
-    vertical-align: top;
+    font-size: 1em;
 }
 
 .price {
@@ -164,37 +163,9 @@ ul ul a {
     font-size: 1.8em;
 }
 
-.social-logo {
-    width: 2vw;
-    height: 3vh;
-    margin-bottom: 1vh;
-}
-
-.bottom-image {
-    width: 43vw;
-    height: 12vh;
-    margin-bottom: 1vh;
-}
-
-.vp {
-    padding-top: 2vh;
-}
-
 .border {
     border: 10px solid #C1C1C1!important;
     margin-top: 15px;
-}
-
-.small-border {
-    border: 2px solid #C1C1C1!important;
-}
-
-.heart {
-    max-width: 14.3%!important;
-}
-
-.cart {
-    max-width: 44.3%!important;
 }
 
 .shop-icons {
@@ -209,7 +180,7 @@ ul ul a {
     display: block;
     margin: 0 auto 0 auto;
     width: 50%!important;
-  }
+}
 
 .banner-buttons {
     justify-content: space-between;
@@ -238,6 +209,50 @@ ul ul a {
 
 /* End Home */
 
+
+/* Specific Glass */
+.united p{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.title {
+    font-weight: 900;
+    font-size: 1.8em;
+}
+
+.small-border {
+    border: 2px solid #C1C1C1!important;
+}
+
+.heart {
+    max-width: 13%!important;
+}
+
+.cart {
+    max-width: 44.3%!important;
+}
+
+.social-logo {
+    width: auto;
+    height: auto;
+    margin-bottom: 1vh;
+}
+
+.bottom-image {
+    width: 43vw;
+    height: 10vh;
+    margin-bottom: 1vh;
+}
+
+.btn-buy {
+    background-color: #FF3D00;
+    font-size: 2em;
+    width: 175px;
+    border-radius: 20px;
+}
+/* End Specific Glass */
+
 /* Footer */
 .container-fluid {
     background: linear-gradient(
@@ -247,7 +262,7 @@ ul ul a {
 }
 
 .small-text-size {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .footer-form-control {
@@ -269,6 +284,26 @@ ul ul a {
 }
 
 /* End Footer*/
+
+
+/* Logo Cart*/
+
+.logo-cart {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-cart {
+    background-color: #FF3D00;
+    font-size: 1em;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* End Logo Cart*/
 
 @media (max-width: 768px) {
     #sidebar {

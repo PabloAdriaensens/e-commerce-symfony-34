@@ -44,5 +44,4 @@ class DefaultController extends Controller
             'glasses' => $glasses
         ]);
     }
-
 }

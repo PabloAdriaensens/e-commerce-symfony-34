@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new AdminBundle\AdminBundle(),
+            new CartBundle\CartBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

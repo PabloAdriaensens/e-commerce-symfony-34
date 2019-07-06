@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 use GlassBundle\Entity\Section;
 use GlassBundle\Entity\Glass;
+use CartBundle\Entity\Cart;
 
 /**
  * @Route("/glasses")
@@ -32,7 +33,7 @@ class DefaultController extends Controller
             'sections' => $sections
         ]);
     }
-    
+
     /**
      * @Route("/{id}", name="get_glass", requirements={"id"="\d+"})
      */
@@ -45,5 +46,27 @@ class DefaultController extends Controller
         return $this->render('default/get_glass.html.twig', [
             'glasses' => $glasses
         ]);
+    }
+
+    /**
+     * @param Glass $glass
+     *
+     * @Route("/{id}/add-shopping-cart", requirements={"id" = "\d+"}, name="add_shopping_cart")
+     *
+     */
+    public function addItemToShoppingCart(Glass $glass)
+    {
+        // Insertar producto al carrito
+        $item = new Cart();
+        $item->setQuantity(1);
+        $item->setProduct($glass);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($item);
+        $entityManager->flush();
+
+        // Redirigir
+        $response = $this->redirectToRoute('shopping-cart-list');
+
+        return $response;
     }
 }

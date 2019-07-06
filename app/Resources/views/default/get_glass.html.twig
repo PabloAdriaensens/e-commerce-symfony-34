@@ -26,13 +26,14 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-2 small-border heart mr-1">
-                                <input class="shop-icons" type="image" src="{{ asset('img/heart.png') }}"/>
+                                <input class="shop-icons mt-3" type="image" src="{{ asset('img/heart.png') }}"/>
                             </div>
-                            <div class="col-md-6 small-border cart">
-                                <input class="shop-icons" type="image" src="{{ asset('img/shopping-cart.png') }}"/>        Añadir al carrito
+                            <div class="col-md-6 small-border cart text-center united">
+                                <input class="shop-icons" type="image" src="{{ asset('img/shopping-cart.png') }}"/><p class=" grey-text mt-3 ml-2">Añadir al carrito</p>
+
                             </div>
                             <div class="col-md-4">
-                                <button type="submit" class="btn btn-secondary">COMPRAR</button>
+                                <a class="nav-link btn-buy white-text" href="{{ path('add_shopping_cart', {'id': glass.id }) }}">Comprar<span class="sr-only">(current)</span></a>
                             </div>
                         </div>
                     </div>
@@ -42,16 +43,16 @@
                     </div>
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-md-1 mr-1">
                                 <a><img class="social-logo" src="{{ asset('img/twitter-logo.png') }}" alt="twitter"></a>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-1 mr-1">
                                 <a><img class="social-logo" src="{{ asset('img/facebook-logo.png') }}" alt="twitter"></a>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-1 mr-1">
                                 <a><img class="social-logo" src="{{ asset('img/google-logo.png') }}" alt="twitter"></a>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-1 mr-1">
                                 <a><img class="social-logo" src="{{ asset('img/mail-logo.png') }}" alt="twitter"></a>
                             </div>
                         </div>
