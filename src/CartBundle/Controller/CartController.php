@@ -101,4 +101,25 @@ class CartController extends Controller
 
         return $response;
     }
+
+    /**
+     * @param Cart $item
+     *
+     * @Route("/{id}/remove-item", requirements={"id" = "\d+"}, name="remove-item-sc")
+     *
+     */
+    public function removeItemShoppingCart(Cart $item)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        // Logica
+        // Eliminar un item en concreto
+        $entityManager->remove($item);
+        $entityManager->flush();
+
+        // Redirigir
+        $response = $this->redirectToRoute('shopping-cart-list');
+
+        return $response;
+    }
 }

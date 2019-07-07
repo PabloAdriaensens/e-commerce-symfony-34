@@ -46,21 +46,30 @@
                         <tbody>
                         {% for item in cartItems %}
                             <tr>
-                                <td><a><img src="/img/{{ item.getProduct().getImage() }}" class="img-responsive" width="125" alt=""></a></td>
-                                <td><p class="small-text-size mt-3">{{ item.getProduct().getName() }}
-                                </br>¡En stock!¡Recibelo mañana!</p>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                    <label class="custom-control-label small-text-size" for="defaultUnchecked">Extensión de garantía</label>
-                                </div></td>
-                                <td><p class="mt-3 text-center">{{ item.getProduct().getPrice() }} €</p></td>
                                 <td>
-                                    <a class="nav-link black-text text-center" href="{{ path('less-quantity-sc', {'id': item.id }) }}">-<span class="sr-only">(current)</span></a>
-                                    <p class="mt-3 text-center">{{ item.getQuantity() }}</p>
-                                    <a class="nav-link black-text text-center" href="{{ path('add-quantity-sc', {'id': item.id }) }}">+<span class="sr-only">(current)</span></a>
+                                    <a><img src="/img/{{ item.getProduct().getImage() }}" class="img-responsive" width="125" alt=""></a>
                                 </td>
-                                <td><p class="mt-3 text-center">{{ item.getQuantity() * item.getProduct().getPrice() }} €</p></td>
-                                <td><p class="mt-3">x</p></td>
+                                <td>
+                                    <p class="small-text-size mt-3">{{ item.getProduct().getName() }}</br>¡En stock!¡Recibelo mañana!</p>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                                        <label class="custom-control-label small-text-size" for="defaultUnchecked">Extensión de garantía</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="mt-3 text-center">{{ item.getProduct().getPrice() }} €</p>
+                                </td>
+                                <td>
+                                    <a class="nav-link text-center" href="{{ path('less-quantity-sc', {'id': item.id }) }}">-<span class="sr-only">(current)</span></a>
+                                    <p class="mt-3 text-center">{{ item.getQuantity() }}</p>
+                                    <a class="nav-link text-center" href="{{ path('add-quantity-sc', {'id': item.id }) }}">+<span class="sr-only">(current)</span></a>
+                                </td>
+                                <td>
+                                    <p class="mt-3 text-center">{{ item.getQuantity() * item.getProduct().getPrice() }} €</p>
+                                </td>
+                                <td>
+                                    <a class="nav-link text-center" href="{{ path('remove-item-sc', {'id': item.id }) }}">x<span class="sr-only">(current)</span></a>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
