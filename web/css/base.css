@@ -226,7 +226,7 @@ ul ul a {
 }
 
 .heart {
-    max-width: 13%!important;
+    max-width: 5vw;
 }
 
 .cart {
@@ -283,6 +283,15 @@ ul ul a {
     height: 0.1vh;
 }
 
+.cart-separator {
+    padding: 0;
+}
+
+.hr-cart-separator {
+    background-color: #FF3D00;
+    height: 1vh;
+}
+
 /* End Footer*/
 
 
@@ -293,9 +302,14 @@ ul ul a {
     height: 100%;
 }
 
-.btn-cart {
+.btn-delivery {
     background-color: #FF3D00;
     font-size: 1em;
+}
+
+.btn-cart {
+    background-color: #FF3D00;
+    font-size: 12px;
 }
 
 .space-between {

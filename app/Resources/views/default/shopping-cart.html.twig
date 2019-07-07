@@ -29,84 +29,105 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="col-md-12 mt-3 color-back">
-                    <div class="row my-auto">
-                            <div class="col-md-8">
-                                <p class="black-text">Artículos en tu cesta</p>
-                                <table class="table">
-                                    <thead class="thead-light">
-                                        <tr>
-                                        <th scope="col">ARTICLE</th>
-                                        <th scope="col"></th>
-                                        <th scope="col">PRICE</th>
-                                        <th scope="col">UNITS</th>
-                                        <th scope="col">TOTAL</th>
-                                        <th scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for item in cartItems %}
-                                        <tr>
-                                            <td><a><img src="/img/{{ item.getProduct().getImage() }}" class="img-responsive" width="125" alt=""></a></td>
-                                            <td><p class="small-text-size mt-3">{{ item.getProduct().getName() }}
-                                            </br>¡En stock!¡Recibelo mañana!</p>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                                <label class="custom-control-label small-text-size" for="defaultUnchecked">Extensión de garantía</label>
-                                            </div></td>
-                                            <td><p class="mt-3 text-center">{{ item.getProduct().getPrice() }} €</p></td>
-                                            <td>
-                                            <a class="nav-link black-text text-center" href="{{ path('less-quantity-sc', {'id': item.id }) }}">-<span class="sr-only">(current)</span></a>
-                                            <p class="mt-3 text-center">{{ item.getQuantity() }}</p>
-                                            <a class="nav-link black-text text-center" href="{{ path('add-quantity-sc', {'id': item.id }) }}">+<span class="sr-only">(current)</span></a>
-                                            </td>
-                                            <td><p class="mt-3 text-center">{{ item.getQuantity() * item.getProduct().getPrice() }} €</p></td>
-                                            <td><p class="mt-3">x</p></td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
+            <div class="row my-auto">
+                <div class="col-md-8">
+                   <p class="black-text mt-3">Artículos en tu cesta</p>
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                            <th scope="col">ARTICLE</th>
+                            <th scope="col"></th>
+                            <th scope="col">PRICE</th>
+                            <th scope="col">UNITS</th>
+                            <th scope="col">TOTAL</th>
+                            <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in cartItems %}
+                            <tr>
+                                <td><a><img src="/img/{{ item.getProduct().getImage() }}" class="img-responsive" width="125" alt=""></a></td>
+                                <td><p class="small-text-size mt-3">{{ item.getProduct().getName() }}
+                                </br>¡En stock!¡Recibelo mañana!</p>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                                    <label class="custom-control-label small-text-size" for="defaultUnchecked">Extensión de garantía</label>
+                                </div></td>
+                                <td><p class="mt-3 text-center">{{ item.getProduct().getPrice() }} €</p></td>
+                                <td>
+                                    <a class="nav-link black-text text-center" href="{{ path('less-quantity-sc', {'id': item.id }) }}">-<span class="sr-only">(current)</span></a>
+                                    <p class="mt-3 text-center">{{ item.getQuantity() }}</p>
+                                    <a class="nav-link black-text text-center" href="{{ path('add-quantity-sc', {'id': item.id }) }}">+<span class="sr-only">(current)</span></a>
+                                </td>
+                                <td><p class="mt-3 text-center">{{ item.getQuantity() * item.getProduct().getPrice() }} €</p></td>
+                                <td><p class="mt-3">x</p></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="col-md-8">
+                        <div class="row my-auto space-between">
+                            <div class="col-md-6 small-border cart text-center united">
+                                <a href="{{ path('delete-shopping-cart') }}"><input class="shop-icons" type="image" src="{{ asset('img/trash.png') }}"/><p class=" grey-text small-text-size mt-3 ml-2">Vaciar cesta</p></a>
                             </div>
-                        <div class="col-md-8">
-                            <div class="row my-auto space-between">
-                                <div class="col-md-6 small-border cart text-center united">
-                                    <a href="{{ path('delete-shopping-cart') }}"><input class="shop-icons" type="image" src="{{ asset('img/trash.png') }}"/><p class=" grey-text small-text-size mt-3 ml-2">Vaciar cesta</p></a>
-                                </div>
-                                <div class="col-md-6 small-border cart grey-text text-center">
-                                    <a class="nav-link grey-text small-text-size mt-2" href="/">Seguir comprando<span class="sr-only">(current)</span></a>
-                                </div>
+                            <div class="col-md-6 small-border cart grey-text text-center">
+                                <a class="nav-link grey-text small-text-size mt-2" href="/">Seguir comprando<span class="sr-only">(current)</span></a>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <p class="small-text-size">Can Be Geek Premium puedes beneficiarte de gastos de envío</p>
-                            <p class="orange-text">Gratis</br>(ver detalles)</p>
-                            <div class="row my-auto space-between">
-                            <p class="black-text">Total:</p><p class="black-text">{{ totalSum }}€</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-12 cart-separator">
+                        <hr class="hr-cart-separator" />
+                    </div>
+                    <p class="small-text-size">Can Be Geek Premium puedes beneficiarte de gastos de envío</p>
+                    <p class="orange-text">Gratis</br>(ver detalles)</p>
+                    <div class="row my-auto space-between">
+                        <p class="black-text">Total:</p><p class="black-text">{{ totalSum }}€</p>
+                    </div>
+                    <a class="nav-link btn-delivery white-text text-center" href="#">Realizar Pedido<span class="sr-only">(current)</span></a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 d-none d-sm-block">
+                        <div class="row">
+                            {% for glass in glasses %}
+                                <div class="col-md-4 color-back d-flex justify-content-center">
+                                    <div class="item-glass my-auto">
+                                        <a href="/glasses/{{ glass.id }}"><img src="/img/{{glass.image}}" class="img-responsive" alt=""></a>
+                                        <div class="row">
+                                            <div class="col-md-12 vp my-auto vd">
+                                                <p class="text-center small-text-size">{{glass.name}}</p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="my-auto">
+                                                    <p class="text-center black-text">{{glass.price}}$</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 my-auto vd">
+                                                <a class="nav-link btn-cart white-text text-center" href="#">Añadir al carrito<span class="sr-only">(current)</span></a>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="my-auto">
+                                                    <p class="orange-text text-center small-text-size">Alternativas</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
                             </div>
-                            <a class="nav-link btn-cart white-text text-center" href="#">Realizar Pedido<span class="sr-only">(current)</span></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container">
-                <div class="col-md-3 color-back">
-                    <p class="black-text">Puede que te interese</p>
-                    {% for glass in glasses %}
-                    <a><img src="/img/{{glass.image}}" class="img-responsive center" alt=""></a>
-                    <p class="text-center">{{ glass.name }}</p>
-                    <p class="price black-text text-center">{{ glass.price }}€</p>
-                    <a class="nav-link btn-cart white-text text-center" href="#">Añadir al carrito<span class="sr-only">(current)</span></a>
-                    <p class="orange-text text-center">Alternativas</p>
-                    {% endfor %}
+                <div class="col-md-8 space-between">
+                    <p>Formas de pago:</p><p>100% Seguridad</p>
                 </div>
-            </div>
-            <div class="container">
-                <div class="col-md-8">
-                    <p class="">Formas de pago - 100% Seguridad</p>
-                </div>
-                <div class="col-md-8">
-                    <p class="">VISA Mastercard LaCaixa - SSL Certified Security</p>
+                <div class="col-md-8 space-between">
+                    <p>VISA Mastercard LaCaixa</p><p>SSL Certified Security</p>
                 </div>
             </div>
         </div>
