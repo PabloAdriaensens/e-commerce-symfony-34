@@ -73,4 +73,25 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @param Glass $glass
+     *
+     * @Route("/{id}/remove-glasses", requirements={"id" = "\d+"}, name="remove-glasses")
+     *
+     */
+    public function removeGlasses(Glass $glass)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        // Logica
+        // Eliminar un item en concreto
+        $entityManager->remove($glass);
+        $entityManager->flush();
+
+        // Redirigir
+        $response = $this->redirectToRoute('admin');
+
+        return $response;
+    }
 }

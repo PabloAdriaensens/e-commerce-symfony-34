@@ -22,17 +22,37 @@
                 <td>{{glass.price}}</td>
                 <td>
                     <a class="btn btn-success" href="/">Edit</a>
-                    <a class="btn btn-danger" href="/glasses">Delete</a>
+                    <a class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center" id="myModalLabel">Are you sure you want to delete these glasses?</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            {{glass.name}}
+                        </div>
+                        <div class="modal-footer">
+                            <a class="nav-link text-center red-text title" href="{{ path('remove-glasses', {'id': glass.id }) }}">Yes<span class="sr-only">(current)</span></a>
+                            <a class="nav-link text-center title" data-dismiss="modal" aria-label="Close">No<span class="sr-only">(current)</span></a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 </div>
-<div class="container">
-  <div class="row">
+<div class="container mb-5">
+  <div class="row mt-5">
     <div class="col text-center">
-        <a class="nav-link" href="/admin/add"> Add Glass <span class="sr-only">(current)</span></a>
+        <a class="nav-link btn-add white-text" href="/admin/add"> Add Glass <span class="sr-only">(current)</span></a>
     </div>
   </div>
 </div>

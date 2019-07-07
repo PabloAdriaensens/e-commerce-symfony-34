@@ -29,7 +29,7 @@
                                 <input class="shop-icons mt-3" type="image" src="{{ asset('img/heart.png') }}"/>
                             </div>
                             <div class="col-md-6 small-border cart text-center united">
-                                <a href="{{ path('add-basket', {'id': glass.id }) }}"><input class="shop-icons" type="image" src="{{ asset('img/shopping-cart.png') }}"/><p class=" grey-text mt-3 ml-2">Añadir al carrito</p></a>
+                                <a href="{{ path('add-shopping-cart', {'id': glass.id }) }}"><input class="shop-icons" type="image" src="{{ asset('img/shopping-cart.png') }}"/><p class=" grey-text mt-3 ml-2">Añadir al carrito</p></a>
                             </div>
                             <div class="col-md-4">
                                 <a class="nav-link btn-buy white-text" href="{{ path('add-shopping-cart', {'id': glass.id }) }}">Comprar<span class="sr-only">(current)</span></a>
