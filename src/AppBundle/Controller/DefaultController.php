@@ -27,7 +27,7 @@ class DefaultController extends Controller
     public function getAllSectionsAction()
     {
         $repository = $this->getDoctrine()->getRepository(Section::class);
-        $sections = $repository->findAll();
+        $sections = $repository->findBy(['active' => 1]);
         return $this->render('default/sidebar.html.twig', [
             'sections' => $sections
         ]);
