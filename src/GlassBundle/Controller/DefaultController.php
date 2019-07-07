@@ -51,17 +51,54 @@ class DefaultController extends Controller
     /**
      * @param Glass $glass
      *
-     * @Route("/{id}/add-shopping-cart", requirements={"id" = "\d+"}, name="add_shopping_cart")
+     * @Route("/{id}/add-shopping-cart", requirements={"id" = "\d+"}, name="add-shopping-cart")
      *
      */
     public function addItemToShoppingCart(Glass $glass)
     {
-        // Insertar producto al carrito
-        $item = new Cart();
-        $item->setQuantity(1);
-        $item->setProduct($glass);
+        $repository = $this->getDoctrine()->getRepository(Cart::class);
         $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($item);
+        $existingItem = $repository->findOneBy(['product' => $glass]);
+
+        if ($existingItem) {
+            // Actualizar la cantidad
+            $existingQuantity = $existingItem->getQuantity();
+            $quantityToUpdate = $existingQuantity + 1;
+            $existingItem->setQuantity($quantityToUpdate);
+            $entityManager->persist($existingItem);
+            $entityManager->flush();
+        } else {
+            // Insertar producto al carrito
+            $item = new Cart();
+            $item->setQuantity(1);
+            $item->setProduct($glass);
+            $entityManager->persist($item);
+            $entityManager->flush();
+        }
+
+        // Redirigir
+        $response = $this->redirectToRoute('shopping-cart-list');
+
+        return $response;
+    }
+
+    /**
+     * @param Glass $glass
+     *
+     * @Route("/delete-shopping-cart", name="delete-shopping-cart")
+     *
+     */
+    public function deleteItemsShoppingCart()
+    {
+        // Eliminar productos del carrito
+        $repository = $this->getDoctrine()->getRepository(Cart::class);
+        $itemsCart = $repository->findAll();
+        $entityManager = $this->getDoctrine()->getManager();
+
+        foreach ($itemsCart as $itemCart) {
+            $entityManager->remove($itemCart);
+        }
+
         $entityManager->flush();
 
         // Redirigir

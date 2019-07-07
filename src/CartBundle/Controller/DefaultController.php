@@ -7,9 +7,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/s")
-     */
     public function indexAction()
     {
         return $this->render('@Cart/Default/index.html.twig');
