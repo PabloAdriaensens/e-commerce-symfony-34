@@ -33,9 +33,10 @@ services:
   # AppBundle\Service\ExampleService:
   #     arguments:
   #         $someArgument: 'some_value'
-  
-  UserBundle\DataFixtures\:
-    resource: "../../src/UserBundle/DataFixtures/"
 
   GlassBundle\DataFixtures\:
     resource: "../../src/GlassBundle/DataFixtures/"
+
+  UserBundle\Controller\DefaultController:
+    autowire: true # or define your controller constructor and configure its arguments explicitly
+    tags: ['controller.service_arguments']

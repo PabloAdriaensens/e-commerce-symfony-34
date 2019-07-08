@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="form text-center vp">
+<h1 class="mb-5">User's registry</h1>
+
+{{form_start(form)}}
+    {{form_widget(form)}}
+{{form_end(form)}}
+</div>
+<div class="mb-5"></div>
+
+{% endblock %}

@@ -3,6 +3,8 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -10,8 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
+
     /**
      * @var int
      *
@@ -24,30 +32,36 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=80)
+     * @ORM\Column(name="username", type="string", length=255)
      */
-    private $name;
+    private $username;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=80)
+     * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=100)
+     * @ORM\Column(name="password", type="string", length=512)
      */
     private $password;
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(name="admin", type="boolean")
+     * @Assert\NotBlank
+     * @Assert\Length(max=4096)
      */
-    private $admin;
+    private $plainPassword;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="json_array")
+     */
+    private $roles;
 
     /**
      * @var \DateTime
@@ -75,27 +89,27 @@ class User
     }
 
     /**
-     * Set name
+     * Set username
      *
-     * @param string $name
+     * @param string $username
      *
      * @return User
      */
-    public function setName($name)
+    public function setUsername($username)
     {
-        $this->name = $name;
+        $this->username = $username;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get username
      *
      * @return string
      */
-    public function getName()
+    public function getUsername()
     {
-        return $this->name;
+        return $this->username;
     }
 
     /**
@@ -147,27 +161,27 @@ class User
     }
 
     /**
-     * Set admin
+     * Set roles
      *
-     * @param boolean $admin
+     * @param array $roles
      *
      * @return User
      */
-    public function setAdmin($admin)
+    public function setRoles($roles)
     {
-        $this->admin = $admin;
+        $this->roles = $roles;
 
         return $this;
     }
 
     /**
-     * Get admin
+     * Get roles
      *
-     * @return bool
+     * @return array
      */
-    public function getAdmin()
+    public function getRoles()
     {
-        return $this->admin;
+        return $this->roles;
     }
 
     /**
@@ -217,5 +231,38 @@ class User
     {
         return $this->updatedAt;
     }
-}
 
+    public function getSalt()
+    {
+        // The bcrypt and argon2i algorithms don't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
+
+    public function eraseCredentials()
+    { }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return User
+     */
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+}
