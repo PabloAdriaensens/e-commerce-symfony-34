@@ -102,7 +102,7 @@ class DefaultController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            return $this->redirectToRoute('resultado_index', [
+            return $this->redirectToRoute('admin', [
                 'id' => $glass->getId(),
             ]);
         }

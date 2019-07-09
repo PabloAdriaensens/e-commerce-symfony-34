@@ -79,6 +79,7 @@
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    color: #fff;
 }
 
 #sidebar ul li a:hover {
@@ -265,6 +266,10 @@ ul ul a {
     font-size: 2em;
     width: 175px;
     border-radius: 20px;
+}
+
+.correction {
+    padding: 0;
 }
 /* End Specific Glass */
 

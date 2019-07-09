@@ -42,10 +42,11 @@
                     </ul>
                     <ul class="navbar-nav mr-auto">
 
+                        {% if is_granted("ROLE_ADMIN") %}
                         <li class="nav-item active">
                             <a class="nav-link" href="/admin">Admin <span class="sr-only">(current)</span></a>
                         </li>
-                        
+                        {% endif %}
 
                         {% if app.user %}
                         {{ app.user.username }}
@@ -151,7 +152,7 @@
             <!-- Derechos reservados -->
             <div class="row foot-rights ">
                 <div class="col-12 d-none d-sm-block">
-                    <p class="white-text text-center">GeeksHubs 2019 All rights reserved</p>
+                    <p class="white-text text-center">All4Business 2019 All rights reserved</p>
                 </div>
             </div>
         </div>
