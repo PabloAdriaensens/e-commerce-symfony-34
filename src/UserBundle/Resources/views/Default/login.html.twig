@@ -1,21 +1,50 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/base.css">
 
-{% block body %}
-{# app/Resources/views/security/login.html.twig #}
-{# ... you will probably extend your base template, like base.html.twig #}
+        <title>{% block title %}Shopping-cart{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    {% block body %}
+    {# app/Resources/views/security/login.html.twig #}
+    {# ... you will probably extend your base template, like base.html.twig #}
 
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
-<div class="form text-center vp">
-<h1 class="mb-5">Login</h1>
+    <div class="container-login">
+        <div class="form text-center vp">
+            <h1 class="mb-5 white-text">Login</h1>
 
-<div class="form text-center vp">
-{{form_start(form)}}
-    {{form_widget(form)}}
-{{form_end(form)}}
-</div>
-<div class="mb-5"></div>
+            <div class="form text-center vp white-text">
+                {{form_start(form)}}
+                    {{form_widget(form)}}
+                {{form_end(form)}}
+            </div>
+            <div class="mb-5"></div>
 
-{% endblock %}
+            <h5 class="mb-4  white-text">You don't have an accout?</h5>
+
+            <div class="row my-auto">
+                <div class="col-md-3 center">
+                    <a class="nav-link btn-add white-text" href="/registry"> Go to Registry <span class="sr-only">(current)</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/js/base.js" type="text/javascript"></script>
+</html>

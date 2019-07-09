@@ -40,6 +40,7 @@ class DefaultController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(Glass::class);
         $glasses = $repository->findAll();
+
         return $this->render('default/home.html.twig', [
             'glasses' => $glasses
         ]);

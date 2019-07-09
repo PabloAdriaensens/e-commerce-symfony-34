@@ -58,7 +58,10 @@ class DefaultController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(Cart::class);
         $entityManager = $this->getDoctrine()->getManager();
-        $existingItem = $repository->findOneBy(['product' => $glass]);
+        $existingItem = $repository->findOneBy([
+            'product' => $glass,
+            'user' => $this->getUser()
+        ]);
 
         if ($existingItem) {
             // Actualizar la cantidad
@@ -72,6 +75,7 @@ class DefaultController extends Controller
             $item = new Cart();
             $item->setQuantity(1);
             $item->setProduct($glass);
+            $item->setUser($this->getUser());
             $entityManager->persist($item);
             $entityManager->flush();
         }
@@ -92,7 +96,7 @@ class DefaultController extends Controller
     {
         // Eliminar productos del carrito
         $repository = $this->getDoctrine()->getRepository(Cart::class);
-        $itemsCart = $repository->findAll();
+        $itemsCart = $repository->findBy(['user' => $this->getUser()]);
         $entityManager = $this->getDoctrine()->getManager();
 
         foreach ($itemsCart as $itemCart) {

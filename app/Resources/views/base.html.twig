@@ -45,11 +45,14 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/admin">Admin <span class="sr-only">(current)</span></a>
                         </li>
+                        
 
                         {% if app.user %}
+                        {{ app.user.username }}
                         <li class="nav-item active">
                             <a class="nav-link small-nav" href="/logout">Logout<span class="sr-only">(current)</span></a>
                         </li>
+
 
                         {% else %}
                         <li class="nav-item active">

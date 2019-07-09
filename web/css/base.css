@@ -219,10 +219,6 @@ ul ul a {
     background-color: #FF3D00;
 }
 
-.modal-footer {
-    justify-content: center;
-}
-
 .btn-danger {
     color: #fff!important;
 }
@@ -337,6 +333,30 @@ ul ul a {
 }
 
 /* End Logo Cart*/
+
+
+/* Login */
+.container-login {
+    min-height: 100vh;
+    background: linear-gradient(
+        rgba(20,20,20, .7), 
+        rgba(20,20,20, .8)),
+        url("../img/login-back.jpg") center center no-repeat;
+}
+
+/* End Login*/
+
+
+/* Registry */
+.container-registry {
+    min-height: 100vh;
+    background: linear-gradient(
+        rgba(20,20,20, .7), 
+        rgba(20,20,20, .8)),
+        url("../img/registry-back.jpg") center center no-repeat;
+}
+
+/* End Registry*/
 
 @media (max-width: 768px) {
     #sidebar {
