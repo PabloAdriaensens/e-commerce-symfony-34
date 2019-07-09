@@ -21,7 +21,7 @@
                 <td>{{glass.category}}</td>
                 <td>{{glass.price}}</td>
                 <td>
-                    <a class="btn btn-success" href="/">Edit</a>
+                    <a class="btn btn-success" href="{{ path('edit-glass', {'id': glass.id }) }}">Edit</a>
                     <a class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</a>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

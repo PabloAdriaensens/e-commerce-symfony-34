@@ -75,6 +75,43 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/{id}/edit", name="edit-glass")
+     */
+    public function editGlass(Request $request, Glass $glass)
+    {
+        $repository = $this->getDoctrine()->getRepository(Section::class);
+        $sections = $repository->findAll();
+
+        $sectionsArray = array();
+
+
+        foreach ($sections as $idx => $section) {
+            $sectionsArray[$section->getTitle()] = $section->getId();
+        }
+
+        $form = $this->createFormBuilder($glass)
+        ->add('name')
+        ->add('image')
+        ->add('category', ChoiceType::class, [
+            'choices'  => $sectionsArray
+        ])
+        ->add('price')
+        ->add('save', SubmitType::class, ['label' => 'Edit Glass'])
+        ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('resultado_index', [
+                'id' => $glass->getId(),
+            ]);
+        }
+        return $this->render('@Admin/Default/editGlass.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
      * @param Glass $glass
      *
      * @Route("/{id}/remove-glasses", requirements={"id" = "\d+"}, name="remove-glasses")
