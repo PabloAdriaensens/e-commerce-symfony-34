@@ -218,6 +218,11 @@ ul ul a {
 /* Admin */
 .btn-add {
     background-color: #FF3D00;
+    color: #fff;
+}
+.btn-admin {
+    background-color: #FF3D00;
+    border-radius: 20px;
 }
 
 .btn-danger {
@@ -242,11 +247,12 @@ ul ul a {
 }
 
 .heart {
-    max-width: 5vw;
+    width: auto;
+    max-width: 6vw;
 }
 
 .cart {
-    max-width: 44.3%!important;
+    width: auto;
 }
 
 .social-logo {
@@ -256,8 +262,8 @@ ul ul a {
 }
 
 .bottom-image {
-    width: 43vw;
-    height: 10vh;
+    max-width: 42vw;
+    height: auto;
     margin-bottom: 1vh;
 }
 
@@ -365,7 +371,7 @@ ul ul a {
 
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -250px;
+        margin-left: -150px;
     }
     #sidebar.active {
         margin-left: 0;

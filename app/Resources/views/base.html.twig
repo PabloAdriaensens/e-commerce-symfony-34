@@ -12,7 +12,7 @@
     <body>
 
         <!-- navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light bg-light">
             <a class="navbar-brand" href="#">
                 <a href="/"><img src="{{ asset('img/logo.jpg') }}" width="30" height="30" alt=""></a>
             </a>
@@ -21,54 +21,52 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-5">
-                    <div id="content">
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                            <div class="container">
+                <div class="col-md-12 my-auto space-between">
+                    <ul class="navbar-nav mr-5">
+                        <div id="content">
+                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                <div class="container">
 
-                                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                                    <i class="fas fa-align-left"></i>
-                                    <span>Toggle Sidebar</span>
-                                </button>
+                                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                                        <i class="fas fa-align-left"></i>
+                                        <span>Toggle Sidebar</span>
+                                    </button>
 
-                            </div>
-                        </nav>
-                    </div>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                <ul class="navbar-nav mr-5">
-                    <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                </div>
+                            </nav>
+                        </div>
                     </ul>
-                    <ul class="navbar-nav mr-auto">
+                    <form class="form-inline my-2 my-lg-0">
+                        <ul class="navbar-nav mr-auto">
 
-                        {% if is_granted("ROLE_ADMIN") %}
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/admin">Admin <span class="sr-only">(current)</span></a>
-                        </li>
-                        {% endif %}
+                            {% if is_granted("ROLE_ADMIN") %}
+                            <li class="nav-item active">
+                                <a href="/admin" class="mr-4"><img src="{{ asset('img/admin.png') }}" width="100" height="50" alt=""></a>
+                            </li>
+                            {% endif %}
 
-                        {% if app.user %}
-                        {{ app.user.username }}
-                        <li class="nav-item active">
-                            <a class="nav-link small-nav" href="/logout">Logout<span class="sr-only">(current)</span></a>
-                        </li>
+                            {% if app.user %}
+                            {{ app.user.username }}
+                            <li class="nav-item active">
+                                <a class="nav-link small-nav ml-4" href="/logout">Logout<span class="sr-only">(current)</span></a>
+                            </li>
 
 
-                        {% else %}
-                        <li class="nav-item active">
-                            <a class="nav-link small-nav" href="/login">Login <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link small-nav" href="/registry">Register <span class="sr-only">(current)</span></a>
-                        </li>
-                        {% endif %}
-                        
-                        <li class="nav-item active">
-                            <a class="nav-link small-nav" href="/shopping-cart">Shopping Cart <span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                </form>
+                            {% else %}
+                            <li class="nav-item active">
+                                <a class="nav-link small-nav ml-4" href="/login">Login <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link small-nav ml-4" href="/registry">Register <span class="sr-only">(current)</span></a>
+                            </li>
+                            {% endif %}
+                                
+                            <li class="nav-item active">
+                                <a class="nav-link small-nav ml-4" href="/shopping-cart">Shopping Cart <span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
             </div>
         </nav>
 
